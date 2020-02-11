@@ -2,6 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def classify(x,w):
+    
+    aa = np.dot(w,x)
+    print("aa = " + str(aa))
     if np.dot(w,x) >= 0:
         return 1
     else:
@@ -16,7 +19,6 @@ def learn_weights(x,t):
         for element_x, element_t in zip(x,t):
             if classify(element_x, w) != element_t:
                 w = w + element_t * element_x
-                print('更新後の w = '  + str(w))
         print('[{}回目]: w = {}***'.format(count, w))
         count += 1
     return w

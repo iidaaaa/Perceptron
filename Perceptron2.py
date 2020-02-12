@@ -17,7 +17,14 @@ def step_function(x1,x2,w1,w2):
 def weight_update(x1,x2,t):
     w1 = np.random.rand()
     w2 = np.random.rand()
+
+    xx = np.arange(0,170)
+    #plt.plot(xx, -w1 / w2 * xx, linestyle='solid',color="c")
+
+    #plt.show()
     
+    #character = ["k","m"]
+
     loop = 5
     count = 1
     for i in range(loop):
@@ -25,6 +32,9 @@ def weight_update(x1,x2,t):
             if step_function(update_x1, update_x2, w1, w2) != update_t:
                 w1 = w1 + update_x1 * update_t
                 w2 = w2 + update_x2 * update_t
+                # aa = count - 1
+                # mozi = character[aa]
+                #plt.plot(xx, -w1 / w2 * xx, linestyle='solid',color="k")
 
                 print(str(count) + "回目の重みを更新" + " w = " + str(w1) + ", " + str(w2))
                 count += 1
